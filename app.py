@@ -5,6 +5,19 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import google.generativeai as genai
+from flask import Flask, jsonify, request, render_template # <-- أضف render_template
+
+# ... (باقي الكود)
+
+app = Flask(__name__)
+# CORS(app)  <-- في السيرفر الحقيقي قد لا نحتاج CORS إذا كان الفرونت والباك في نفس المكان، لكن اتركها
+
+# المسار الرئيسي لفتح الموقع
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+# ... (باقي الـ API routes كما هي)
 
 # --- 1. إعدادات Gemini ---
 # تنبيه: لا تشارك مفتاح API الخاص بك علناً
@@ -164,4 +177,5 @@ def chat_gemini():
         return jsonify({"error": "AI Error"}), 500
 
 if __name__ == '__main__':
+
     app.run(debug=True, port=5000)
