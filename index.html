@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartZone - مقارنة الموبايلات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar glass-effect">
+            <div class="logo-area">
+                <i class="fa-solid fa-bolt logo-icon"></i>
+                <div>
+                    <h3 class="logo-text">Smart Zone</h3>
+                    <p class="subtitle">دليلك الذكي للهواتف</p>
+                </div>
+            </div>
+            
+            <div class="filter-header">
+                <i class="fa-solid fa-filter"></i> تصفية حسب الشركة
+            </div>
+
+            <nav class="brand-filters" id="brand-filters-container">
+                <button class="brand-filter active" data-brand="all">
+                    <i class="fa-solid fa-layer-group"></i> <span>الكل</span>
+                </button>
+                </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            
+            <header class="app-header glass-effect">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="ابحث عن موبايل (مثال: S24 Ultra)...">
+                </div>
+                <button class="clear-comparison">
+                    <i class="fa-solid fa-trash-can"></i> تفريغ المقارنة (0)
+                </button>
+            </header>
+
+            <main class="main-content">
+                <section class="hero-section">
+                    <div class="hero-content">
+                        <h1>اكتشف هاتفك <span class="gradient-text">المثالي</span></h1>
+                        <p>قارن بين أحدث الهواتف الذكية بالمواصفات والأسعار الحقيقية.</p>
+                    </div>
+                </section>
+
+                <div class="phone-grid" id="phone-grid"></div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="comparison-modal-overlay">
+        <div class="modal-content glass-effect">
+            <button class="modal-close" id="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="modal-title"><i class="fa-solid fa-scale-balanced"></i> نتيجة المقارنة</h2>
+            <div id="modal-loader" class="loader"></div>
+            <div class="table-responsive">
+                <table id="comparison-table">
+                    <thead><tr id="comparison-table-header"></tr></thead>
+                    <tbody id="comparison-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+   <div class="chatbot-toggler" id="chatbot-toggler">
+        <i class="fa-solid fa-comment-dots"></i>
+    </div>
+
+    <div class="chatbot-container glass-effect" id="chatbot-container">
+        <header class="chat-header">
+            <div class="chat-header-info">
+                <div class="bot-avatar-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Bot" class="bot-avatar-img">
+                    <span class="status-dot"></span>
+                </div>
+                <div class="header-text">
+                    <h3>مساعد SmartZone</h3>
+                    <p>متصل الآن</p>
+                </div>
+            </div>
+            <button id="close-chat"><i class="fa-solid fa-xmark"></i></button>
+        </header>
+
+        <ul class="chat-messages" id="chat-messages">
+            <li class="chat-message bot">
+                <div class="message-content">
+                    <i class="fa-solid fa-robot bot-icon-small"></i>
+                    <p>مرحباً بك! 👋<br>أنا هنا لمساعدتك في مقارنة الموبايلات. اسألني عن أي هاتف!</p>
+                </div>
+            </li>
+        </ul>
+
+        <div class="chat-input-area">
+            <textarea id="chat-input" placeholder="اكتب سؤالك هنا..." required></textarea>
+            <button id="chat-send"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
