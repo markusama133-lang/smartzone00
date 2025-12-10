@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import google.generativeai as genai
-
+import os
 # --- 1. إعدادات Gemini ---
 # تنبيه: لا تشارك مفتاح API الخاص بك علناً
 GEMINI_API_KEY = "AIzaSyAO055e5e3xklxrPGD6hloN9wIOp06TP3c" 
@@ -14,12 +14,12 @@ gemini_model = genai.GenerativeModel('gemini-2.5-pro')
 
 # --- 2. إعدادات قاعدة البيانات ---
 DB_CONFIG = {
-    'user': 'root',
-    'password': '',         
-    'host': '127.0.0.1',
-    'database': 'smartzone_db'
+    'user': os.environ.get('DB_USER', 'root'),
+    'password': os.environ.get('DB_PASSWORD', ''),
+    'host': os.environ.get('DB_HOST', '127.0.0.1'),
+    'database': os.environ.get('DB_NAME', 'smartzone_db'),
+    'port': int(os.environ.get('DB_PORT', 3306))
 }
-
 app = Flask(__name__)
 CORS(app) 
 db_manager = DatabaseManager(DB_CONFIG)
@@ -166,4 +166,5 @@ def chat_gemini():
 if __name__ == '__main__':
 
     app.run(debug=True, port=5000)
+
 
