@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = '';
+    const API_URL = 'http://127.0.0.1:5000';
 
     // --- عناصر الواجهة (DOM Elements) ---
     const phoneGrid = document.getElementById('phone-grid');
