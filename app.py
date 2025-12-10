@@ -14,11 +14,11 @@ gemini_model = genai.GenerativeModel('gemini-2.5-pro')
 
 # --- 2. إعدادات قاعدة البيانات ---
 DB_CONFIG = {
-    'user': os.environ.get('DB_USER', 'root'),
+    'user': os.environ.get('DB_USER', 'avnadmin'),
     'password': os.environ.get('DB_PASSWORD', ''),
-    'host': os.environ.get('DB_HOST', '127.0.0.1'),
-    'database': os.environ.get('DB_NAME', 'smartzone_db'),
-    'port': int(os.environ.get('DB_PORT', 3306))
+    'host': os.environ.get('DB_HOST', 'mysql-20358d36-markusama133-9222.j.aivencloud.com'),
+    'database': os.environ.get('DB_NAME', 'defaultdb'),
+    'port': int(os.environ.get('DB_PORT', 27660))
 }
 app = Flask(__name__)
 CORS(app) 
@@ -166,5 +166,6 @@ def chat_gemini():
 if __name__ == '__main__':
 
     app.run(debug=True, port=5000)
+
 
 
