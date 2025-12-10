@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'http://127.0.0.1:5000';
+    const API_URL = '';
 
     // --- عناصر الواجهة (DOM Elements) ---
     const phoneGrid = document.getElementById('phone-grid');
@@ -346,4 +346,5 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
         return id;
     }
+
 });
